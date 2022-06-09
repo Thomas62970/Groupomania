@@ -1,0 +1,76 @@
+.bloc-connect{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.btn-ins-log button{
+    margin: 15px ;
+    background-color: $color-3;
+    color: $color-2;
+    font-size: 15px;
+    padding: 5px 10px;
+    border-radius: 10px ;
+    border-color: $color-2;
+}
+
+.inscription{
+    width: 300px;
+    height: 400px;
+    margin-bottom: -200px;
+    border: 2px solid $color-2;
+    border-radius: 20%;
+    background-color: $color-3;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    label{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 5px;  
+    }
+    form{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+}
+.login{
+    width: 300px;
+    height: 400px;
+    margin-top: -203px;
+    border: 2px solid $color-2;
+    border-radius: 20%;
+    background-color: $color-3;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    label{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 5px;
+        justify-content: space-around;
+    }
+    form{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        
+    }
+}
+.valider{
+    background-color: $color-3;
+    color: $color-2;
+    margin-top: 30px;
+    font-size: 15px;
+    padding: 5px 10px;
+    border-radius: 10px ;
+    border-color: $color-2;
+    &:hover{
+        transform: scale(1.5);
+    }
+}
