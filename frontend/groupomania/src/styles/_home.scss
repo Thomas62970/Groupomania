@@ -19,7 +19,6 @@ body{
     .inscription{
         width: 300px;
         height: 400px;
-        margin-bottom: -200px;
         border: 2px solid $color-2;
         border-radius: 20%;
         background-color: $color-3;
@@ -47,7 +46,6 @@ body{
     .login{
         width: 300px;
         height: 400px;
-        margin-top: -203px;
         border: 2px solid $color-2;
         border-radius: 20%;
         background-color: $color-3;
@@ -78,4 +76,10 @@ body{
         justify-content: center;
         align-items: center;
     }
+}
+.btnIndex{
+    margin-top: 30px;
+    background-color: $color-3;
+    color: $color-2;
+    border: none;
 }

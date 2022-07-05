@@ -49,8 +49,8 @@ const Inscription = () => {
             <label htmlFor="password">Password</label>
             <input id="password" name="password" value={this.state.password} onChange={this.handleChange} />
             <button className='valider' type='submit' >valider</button>
-            <button onClick={() => dispatch(increment())}>Déja un compte?</button>
             </form>
+            <button className='btnIndex' onClick={() => dispatch(increment())}>Déja un compte?</button>
         </div>
         
     }
