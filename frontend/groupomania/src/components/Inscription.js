@@ -1,6 +1,8 @@
 import React  from 'react';
 import axios from 'axios';
 import { Redirect } from 'react-router-dom';
+import { increment } from '../feature/indexSlice';
+import { useDispatch } from 'react-redux';
 
 
 const api = axios.create({
@@ -8,6 +10,7 @@ const api = axios.create({
 })
 
 const Inscription = () => {
+    const dispatch = useDispatch()
     class Inscription extends React.Component{
     constructor(props){
         super(props);
@@ -46,7 +49,7 @@ const Inscription = () => {
             <label htmlFor="password">Password</label>
             <input id="password" name="password" value={this.state.password} onChange={this.handleChange} />
             <button className='valider' type='submit' >valider</button>
-            <a href='home'>Déja un compte?</a>
+            <button onClick={() => dispatch(increment())}>Déja un compte?</button>
             </form>
         </div>
         

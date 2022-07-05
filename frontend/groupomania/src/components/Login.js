@@ -1,12 +1,14 @@
 import React  from 'react';
 import axios from 'axios';
-import { Redirect } from 'react-router-dom';
+import { decrement } from '../feature/indexSlice';
+import { useDispatch } from 'react-redux';
 
 const api = axios.create({
     baseURL: 'http://127.0.0.1:3000/api/auth'
 })
 
 const Login = () => {
+    const dispatch = useDispatch();
     class Login extends React.Component{
     constructor(props){
         super(props);
@@ -31,7 +33,6 @@ const Login = () => {
             password: this.state.password
         })
         console.log(res);
-        <Redirect to='/fields'/>
     }
     
         
@@ -45,7 +46,7 @@ const Login = () => {
             <input id="password" name="password" value={this.state.password} onChange={this.handleChange} />
             <button className='valider' type='submit' >valider</button>
             </form>
-            <a href='home'>Pas encore de compte?</a>
+            <button onClick={() => dispatch(decrement())}>Pas encore de compte?</button>
             {JSON.stringify(this.state)}
             
         </div>
