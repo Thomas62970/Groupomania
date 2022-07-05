@@ -1,4 +1,4 @@
-const like = require('../models/like');
+
 const publication = require('../models/publication');
 
 

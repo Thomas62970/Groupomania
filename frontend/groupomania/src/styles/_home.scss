@@ -1,0 +1,81 @@
+body{
+    width: 100%;
+    height: 100%;
+    margin: 0px;
+    padding: 0px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    .header{
+        width: 100%;
+        margin: 0px 0px 20px 0px;
+        padding: 0px;
+    }
+    .footer{
+        width: 100%;
+        margin: 20px 0px 0px 0px;
+        padding: 0px;
+    }
+    .inscription{
+        width: 300px;
+        height: 400px;
+        margin-bottom: -200px;
+        border: 2px solid $color-2;
+        border-radius: 20%;
+        background-color: $color-3;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        form{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            button{
+                background-color: $color-3;
+                color: $color-2;
+                margin-top: 30px;
+                font-size: 15px;
+                padding: 5px 10px;
+                border-radius: 10px ;
+                border-color: $color-2;
+                &:hover{
+                    transform: scale(1.5);
+                }
+            }
+        }
+    }
+    .login{
+        width: 300px;
+        height: 400px;
+        margin-top: -203px;
+        border: 2px solid $color-2;
+        border-radius: 20%;
+        background-color: $color-3;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        form{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            button{
+                background-color: $color-3;
+                color: $color-2;
+                margin-top: 30px;
+                font-size: 15px;
+                padding: 5px 10px;
+                border-radius: 10px ;
+                border-color: $color-2;
+                &:hover{
+                    transform: scale(1.5);
+                }
+            }
+        }
+    }
+    .formulaire{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+}
