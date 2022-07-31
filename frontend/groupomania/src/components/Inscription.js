@@ -1,9 +1,7 @@
 import React  from 'react';
 import axios from 'axios';
-import { Redirect } from 'react-router-dom';
 import { increment } from '../feature/indexSlice';
 import { useDispatch } from 'react-redux';
-
 
 const api = axios.create({
     baseURL: 'http://127.0.0.1:3000/api/auth'
@@ -32,12 +30,25 @@ const Inscription = () => {
         })
     }
     validLogin = async () =>{
-        let res = await api.post('/signup', this.state)
-        console.log(res);
-        <Redirect to='/fields'/>
+        const res = await api.post('/signup', {
+            email: this.state.email,
+            nom: this.state.nom,
+            prenom: this.state.prenom,
+            password: this.state.password,
+        })
+        .then((response) => {
+            localStorage.setItem("token", "Bearer " + response.data.token)
+            console.log(response.data.userId)
+            console.log(response.data.moderator)
+            localStorage.setItem("id", response.data.userId)
+            localStorage.setItem("moderator", response.data.moderator)
+        })
+          .catch((error) =>{
+            res.status(400).json({error});
+          })
     }
     render (){
-        return <div className='inscription' style={{zIndex:0}}>
+        return <div className='inscription'>
             <h2>Inscription</h2>
             <form onSubmit={this.validLogin}>
             <label htmlFor="email">Email</label>

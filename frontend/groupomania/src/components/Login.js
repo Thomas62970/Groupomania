@@ -3,11 +3,14 @@ import axios from 'axios';
 import { decrement } from '../feature/indexSlice';
 import { useDispatch } from 'react-redux';
 
+
 const api = axios.create({
-    baseURL: 'http://localhost:3000/api/auth'
+    baseURL: 'http://127.0.0.1:3000/api/auth'
 })
 
+
 const Login = () => {
+    
     const dispatch = useDispatch();
     class Login extends React.Component{
     constructor(props){
@@ -28,12 +31,20 @@ const Login = () => {
         })
     }
     validLogin = async () =>{
-        let res = await api.post('/login', {
+        await api.post('/login',{
             email: this.state.email,
-            password: this.state.password
+            password: this.state.password,
         })
-        console.log(res);
+        .then((response) => {
+            localStorage.setItem("token", "Bearer " + response.data.token)
+            console.log(response.data.userId)
+            console.log(response.data.moderator)
+            localStorage.setItem("id", response.data.userId)
+            localStorage.setItem("moderator", response.data.moderator)
+            window.location = '/fields'
+        })    
     }
+    
     
         
     render (){

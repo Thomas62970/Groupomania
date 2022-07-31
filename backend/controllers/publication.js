@@ -1,4 +1,3 @@
-
 const publication = require('../models/publication');
 
 
@@ -105,6 +104,7 @@ exports.likePublication = (req, res, next) =>{
       if(likeStatus == 1){
         publication.like += 1;
         publication.save()
+        
         .then(() => res.status(200).json({
           message: 'Publication liké'
         }))
@@ -130,3 +130,4 @@ exports.likePublication = (req, res, next) =>{
       res.status(404).json({error})
     })
 }
+

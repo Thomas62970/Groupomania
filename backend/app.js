@@ -16,7 +16,7 @@ const limite_req = require('express-rate-limit');
 const userRoutes = require('./routes/user');
 const publicationRoutes = require('./routes/publication');
 const commentaireRoutes = require('./routes/commentaire');
-
+const likesRoutes = require('./routes/likes');
 
 bd.sync()
 .then((console.log('connexion à la bd')))
@@ -47,6 +47,7 @@ app.use('/images', express.static(path.join(__dirname, 'images')));
 app.use('/api/auth', userRoutes);
 app.use('/api/publication', publicationRoutes);
 app.use('/api/commentaire', commentaireRoutes);
+app.use('/api/likes', likesRoutes);
 
 //exportation de fichier app
 module.exports = app;

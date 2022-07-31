@@ -5,10 +5,10 @@ export const indexSlice = createSlice({
     initialState: {value: 0},
     reducers:{
         increment: (state) =>{
-            state.value += 1
+            state.value += 2
         },
         decrement: (state) =>{
-            state.value -= 1
+            state.value -= 2
         }
     }
 })
