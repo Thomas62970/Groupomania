@@ -5,6 +5,7 @@ const user = require('../models/user');
 exports.signup = (req, res, next) => {
     const {body} = req;
     const email = body.email;
+    const filename = body.avatar
     console.log(email)
     function ajout() { bcrypt.hash(req.body.password, 10)
     .then(hash =>{
@@ -13,7 +14,7 @@ exports.signup = (req, res, next) => {
             prenom: req.body.prenom,
             email: req.body.email,
             password: hash,
-            avatar: req.body.avatar
+            avatar: `${req.protocol}://${req.get('host')}/images/${filename}`
         });
         return res.status(201).json({ message: 'Utilisateur créé !' })
         });
@@ -88,36 +89,36 @@ exports.getOneUser = (req, res, next) => {
   };
 
 
-exports.modifyUser = (req, res, next) => {
-   const userObject = req.file ? {
-      ...JSON.parse(req.body.user),
-    } : {
-      ...req.body
-    };
-  
-    user.findOne({
-      where: {
-        id: req.params.id
-      }
-    }).then((user) => {
-      if (req.userId == req.params.id || req.userMod === 1) {
-        if(userObject.nom != null){user.nom = userObject.nom;}
-        if(userObject.prenom != null){user.prenom = userObject.prenom;}
-        if(userObject.avatar != null){user.avatar = userObject.avatar;}  
-      } else {
-        return res.status(403).json({
-          'error': 'UnAuthorize'
-        });
-      }
-      user.save()
-        .then(() => res.status(200).json({
-          user: user
-        }))
-        .catch(error => res.status(400).json({
-          error
-        }));
-    });
-};
+  exports.modifyUser = (req, res, next) => {
+    const userObject = req.file ? {
+       ...JSON.parse(req.body.user),
+     } : {
+       ...req.body
+     };
+   
+     user.findOne({
+       where: {
+         id: req.params.id
+       }
+     }).then((user) => {
+       if (req.userId == req.params.id || req.userMod === 1) {
+         if(userObject.nom != null){user.nom = userObject.nom;}
+         if(userObject.prenom != null){user.prenom = userObject.prenom;}
+         if(userObject.avatar != null){user.avatar = userObject.avatar;}  
+       } else {
+         return res.status(403).json({
+           'error': 'UnAuthorize'
+         });
+       }
+       user.save()
+         .then(() => res.status(200).json({
+           user: user
+         }))
+         .catch(error => res.status(400).json({
+           error
+         }));
+     });
+ };
 
 
 exports.deleteUser = (req, res, next) => {

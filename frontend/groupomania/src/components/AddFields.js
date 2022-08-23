@@ -6,7 +6,7 @@ const api = axios.create({
 })
 
 const AddFields = () => {
-
+    let token = localStorage.getItem('token');
     class AddFields extends React.Component{
         constructor(props){
             super(props);
@@ -28,9 +28,14 @@ const AddFields = () => {
             })
         }
         addPubli= async() =>{
-            await api.post('/', {
+            let data ={
                 texte: this.state.texte,
                 image: this.state.image,
+            }
+            await api.post('/', data, {
+                headers:{
+                    Authorization: token
+                }
             })
             .then((res) =>{
                 console.log(res);

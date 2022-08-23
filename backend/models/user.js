@@ -28,7 +28,8 @@ const user = bd.define('user', {
     },
     avatar : {
         type : DataTypes.STRING,
-        allowNull : true
+        allowNull : false,
+        defaultValue : 'http://localhost:3000/images/utilisateur.jpg'
     },
     moderateur : {
         type : DataTypes.INTEGER,
